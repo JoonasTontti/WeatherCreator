@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http//www.thymeleaf.org">
+    <head>
+        <title> - Cities page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>List of cities</h1>
+            <ul>
+                <li th:each="city : ${cities}">
+                    
+                    <form method="post" action="/deletecity">
+                        <span th:text="${city.name} +' '+ ${city.baseTemp}">city</span>
+                        <input type="hidden" id="city" name="cityName" th:value="${city.name}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+        <form method="post" action="/cities">
+            <p>
+                <input type="text" id="city_type" name="cityName" placeholder="New city name..." required>
+                <input type="text" id="city_type" name="cityTemperature" placeholder="New city temperature..." required>
+                <button type="submit">Add new city</button>
+            </p>
+        </form>
+        <form method="get" action="/">
+            <button>back</button>
+        </form>
+    </body>
+</html>

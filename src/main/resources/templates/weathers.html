@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http//www.thymeleaf.org">
+    <head>
+        <title> - Weathers page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>List of weathers</h1>
+            <ul>
+                <li th:each="weather : ${weathers}">
+                    
+                    <form method="post" action="/deleteweather">
+                        <span th:text="${weather.name} +' '+ ${weather.weatherTemp}">weather</span>
+                        <input type="hidden" id="weather" name="weatherName" th:value="${weather.name}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+        <form method="post" action="/weathers">
+            <p>
+                <input type="text" id="weather_type" name="weatherName" placeholder="New weather name..." required>
+                <input type="text" id="weather_type" name="weatherTemperature" placeholder="New weathers temperature..." required>
+                <button type="submit">Add new weather</button>
+            </p>
+        </form>
+        <form method="get" action="/">
+            <button>back</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,3 @@
+2022-03-16 01:18:10 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM WEATHER CITY WEATHER[*]"; SQL statement:
+SELECT * FROM WEATHER CITY WEATHER [42000-200]

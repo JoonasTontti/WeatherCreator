@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http//www.thymeleaf.org">
+    <head>
+        <title> - Cities page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>List of cities weathers</h1>
+            <ul>
+                <li th:each="cWeat : ${cityweather}">
+                    
+                    <form method="post" action="/deletecity">
+                        <span th:text="${cWeat.cityName} +' ' + ${cWeat.weatherName} +' ' + ${cWeat.temperature}  ">city</span>
+
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+          
+        <form method="get"  action="/">
+            <button>back</button>
+        </form>  
+
+        <form method="get" action="/cityweather">
+            <button>Get new Weathers</button>
+        </form>
+
+    </body>
+</html>
