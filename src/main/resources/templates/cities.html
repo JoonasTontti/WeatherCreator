@@ -20,7 +20,13 @@
                 </li>
             </ul>
         </div>
-
+        <form method="post" action="/editcity">
+            <p>
+                <input type="text" id="city_edit" name="cityName" placeholder="City name to be edited" required>
+                <input type="number" id="city_edit" name="cityTemperature" placeholder="New city temperature..." required>
+                <button type="submit">Edit city</button>
+            </p>
+        </form>
         <form method="post" action="/cities">
             <p>
                 <input type="text" id="city_type" name="cityName" placeholder="New city name..." required>

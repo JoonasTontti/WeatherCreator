@@ -34,6 +34,12 @@ public class WeatherController {
         return "redirect:/weathers";
     }
     
+    @PostMapping("/editweathers")
+    public String editWeather(@RequestParam String weatherName,String weatherTemperature) {
+        System.out.println("Saatiin: " + weatherName);
+        weatherService.editWeather(weatherName,weatherTemperature);
+        return "redirect:/weathers";
+    }
     
     
 }

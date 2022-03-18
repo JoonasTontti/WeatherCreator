@@ -35,9 +35,17 @@ public class CityService {
     }
 
     @Transactional
+    public void editCity(String name,String cityTemperature) {
+        City city = this.findCityByName(name);
+        city.editCity(name, Double.parseDouble(cityTemperature));
+        this.cityRepository.save(city);
+
+    }
+
+    @Transactional
     public void deleteCityByName(String name) {
         this.cityRepository.deleteCityByName(name);
 
     }
-            
+             
 }

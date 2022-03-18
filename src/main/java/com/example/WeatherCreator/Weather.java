@@ -14,4 +14,13 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 public class Weather extends AbstractPersistable<Long> {
     private String name;
     private double weatherTemp;
+    
+    public Weather(String name) {
+        this.name = name;
+    }
+    
+    public void editWeather(String name, double weatherTemp) {
+        this.name = name;
+        this.weatherTemp = weatherTemp;
+    }
 }

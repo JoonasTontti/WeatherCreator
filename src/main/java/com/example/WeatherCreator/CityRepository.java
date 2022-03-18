@@ -12,5 +12,5 @@ public interface CityRepository extends JpaRepository<City, Long> {
 
     Long deleteCityByName(String cityName);
 
-      
+    
 }

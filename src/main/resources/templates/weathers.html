@@ -21,6 +21,13 @@
             </ul>
         </div>
 
+        <form method="post" action="/editweathers">
+            <p>
+                <input type="text" id="weather_edit" name="weatherName" placeholder="Weather name to be edited" required>
+                <input type="number" id="weather_edit" name="weatherTemperature" placeholder="New temperature..." required>
+                <button type="submit">Edit weather</button>
+            </p>
+        </form>
         <form method="post" action="/weathers">
             <p>
                 <input type="text" id="weather_type" name="weatherName" placeholder="New weather name..." required>

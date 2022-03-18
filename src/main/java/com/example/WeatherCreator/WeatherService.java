@@ -33,6 +33,14 @@ public class WeatherService {
     }
     
     @Transactional
+    public void editWeather(String name,String weatherTemperature) {
+        Weather weather = this.findWeatherByName(name);
+        weather.editWeather(name, Double.parseDouble(weatherTemperature));
+        this.weatherRepository.save(weather);
+
+    }
+    
+    @Transactional
     public void deleteWeatherByName(String name) {
         this.weatherRepository.deleteWeatherByName(name);
 

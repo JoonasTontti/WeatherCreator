@@ -15,4 +15,12 @@ public class City extends AbstractPersistable<Long> {
     private String name;
     private double baseTemp;
 
+    public City(String name) {
+        this.name = name;
+    }
+    
+    public void editCity(String name, double cityTemperature) {
+        this.name = name;
+        this.baseTemp = cityTemperature;
+    }
 }

@@ -38,5 +38,11 @@ public class CityController {
         return "redirect:/cities";
     }
     
+    @PostMapping("/editcity")
+    public String editCity(@RequestParam String cityName,String cityTemperature) {
+        System.out.println("Saatiin: " + cityName);
+        cityService.editCity(cityName,cityTemperature);
+        return "redirect:/cities";
+    }
 
 }
