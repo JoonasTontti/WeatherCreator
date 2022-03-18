@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 public class WeatherService {
     
     @Autowired
+    private LargeGlobalService globalServices;
+    
+    @Autowired
     private WeatherRepository weatherRepository;
     
     public List<Weather> getWeathers() {
@@ -18,8 +21,10 @@ public class WeatherService {
    
     }
     
-    public void addWeather(String name, double weatherTemperature) {
-        this.weatherRepository.save(new Weather(name, weatherTemperature));
+    public void addWeather(String name, String weatherTemperature) {
+        
+        double weatherTemp=globalServices.checkForNumber(weatherTemperature);
+        this.weatherRepository.save(new Weather(name, weatherTemp));
     }
     
     public Weather findWeatherByName(String weatherName) {
@@ -32,6 +37,5 @@ public class WeatherService {
         this.weatherRepository.deleteWeatherByName(name);
 
     }
-    
     
 }

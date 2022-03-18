@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CityService {
     
+    @Autowired
+    private LargeGlobalService globalServices;
 
     @Autowired
     private CityRepository cityRepository;
@@ -21,8 +23,10 @@ public class CityService {
         return this.cityRepository.findAll();
     }
     
-    public void addCity(String name,double cityTemperature) {
-        this.cityRepository.save(new City(name,cityTemperature));
+    public void addCity(String name,String cityTemperature) {
+        double baseTemp=globalServices.checkForNumber(cityTemperature);
+        
+        this.cityRepository.save(new City(name,baseTemp));
     }
     
     public City findCityByName(String cityName) {
@@ -35,5 +39,5 @@ public class CityService {
         this.cityRepository.deleteCityByName(name);
 
     }
-    
+            
 }

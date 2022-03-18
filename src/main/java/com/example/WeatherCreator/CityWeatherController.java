@@ -20,10 +20,6 @@ public class CityWeatherController {
     public String getCityWeather(Model model){
         ArrayList<CityWeather> cityWeathers = cityWeatherService.getCityWeather();
         model.addAttribute("cityweather", cityWeathers);
-        
-        for(CityWeather h : cityWeathers){
-             System.out.println(h.getId() );
-        }
        
         return "cityWeather";
     } 

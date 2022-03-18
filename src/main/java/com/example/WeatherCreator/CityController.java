@@ -26,7 +26,7 @@ public class CityController {
     }
     
     @PostMapping("/cities")
-    public String addCity(@RequestParam String cityName,double cityTemperature) {
+    public String addCity(@RequestParam String cityName,String cityTemperature) {
         System.out.println("Saatiin: " + cityName);
         cityService.addCity(cityName,cityTemperature);
         return "redirect:/cities";

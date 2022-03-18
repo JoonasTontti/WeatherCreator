@@ -24,12 +24,18 @@
         <form method="post" action="/cities">
             <p>
                 <input type="text" id="city_type" name="cityName" placeholder="New city name..." required>
-                <input type="text" id="city_type" name="cityTemperature" placeholder="New city temperature..." required>
+                <input type="number" id="city_type" name="cityTemperature" placeholder="New city temperature..." required>
                 <button type="submit">Add new city</button>
             </p>
         </form>
         <form method="get" action="/">
             <button>back</button>
+        </form>
+        <form method="get" action="/weathers">
+            <button>View weathers</button>
+        </form>
+        <form method="get" action="/cityweather">
+            <button>View cities weathers</button>
         </form>
     </body>
 </html>

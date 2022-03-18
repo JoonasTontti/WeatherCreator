@@ -2,8 +2,10 @@
 package com.example.WeatherCreator;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,7 +70,11 @@ public class CityWeatherService {
             Random rand = new Random();
             Weather tempWeather = new Weather();
             int min=-15, max=15;
-            DecimalFormat numberFormat = new DecimalFormat("#.0");
+            
+            Locale locale = new Locale ("en","UK");
+            String pattern = "#.0";
+            DecimalFormat numberFormat = (DecimalFormat) NumberFormat.getNumberInstance(locale);
+            numberFormat.applyPattern(pattern);
         
             for(City h : tempCity){
                 String wName,cName;

@@ -23,7 +23,7 @@ public class WeatherController {
     }
     
     @PostMapping("/weathers")
-    public String addWeather(@RequestParam String weatherName, double weatherTemperature) {
+    public String addWeather(@RequestParam String weatherName, String weatherTemperature) {
         weatherService.addWeather(weatherName, weatherTemperature);
         return "redirect:/weathers";
     }
