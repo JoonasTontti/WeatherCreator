@@ -1,10 +1,7 @@
 
 package com.example.WeatherCreator;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,15 +27,23 @@ public class CityService {
     }
     
     public City findCityByName(String cityName) {
-        return this.cityRepository.findByName(cityName).get(0);
+        try{
+            return this.cityRepository.findByName(cityName).get(0);
+
+        }catch(IndexOutOfBoundsException e){
+            return null;
+        }
 
     }
 
     @Transactional
     public void editCity(String name,String cityTemperature) {
         City city = this.findCityByName(name);
-        city.editCity(name, Double.parseDouble(cityTemperature));
-        this.cityRepository.save(city);
+        if(city!=null){
+            city.editCity(name, Double.parseDouble(cityTemperature));
+            this.cityRepository.save(city); 
+        }
+
 
     }
 

@@ -1,7 +1,6 @@
 
 package com.example.WeatherCreator;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +27,23 @@ public class WeatherService {
     }
     
     public Weather findWeatherByName(String weatherName) {
-        return this.weatherRepository.findByName(weatherName).get(0);
+        try{
+            return this.weatherRepository.findByName(weatherName).get(0);
+
+        }catch(IndexOutOfBoundsException e){
+            return null;
+        }
         
     }
     
     @Transactional
     public void editWeather(String name,String weatherTemperature) {
         Weather weather = this.findWeatherByName(name);
-        weather.editWeather(name, Double.parseDouble(weatherTemperature));
-        this.weatherRepository.save(weather);
+        if(weather!=null){
+            weather.editWeather(name, Double.parseDouble(weatherTemperature));
+            this.weatherRepository.save(weather);
+        }
+        
 
     }
     
